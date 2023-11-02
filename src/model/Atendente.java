@@ -3,40 +3,45 @@ package model;
 import java.util.ArrayList;
 
 public class Atendente extends Funcionario { 
-    private String urlLattes;
-    private ArrayList<Disciplina> disciplinas;
+    private String setor;
+    private String funcao;
+
+    public String getSetor() {
+        return setor;
+    }
+
+    public void setSetor(String setor) {
+        this.setor = setor;
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
+    }
     
     public Atendente(){
         
     }
     
-    public Atendente(String nome, String cpf, int numeroCracha, double salario, String urlLattes) {
+    public Atendente(String nome, String cpf, int numeroCracha, double salario, String setor, String funcao) {
         super(nome, cpf, numeroCracha, salario);
-        this.urlLattes = urlLattes;
+        this.setor = setor;
+        this.funcao = funcao;
     }
 
-    public String getUrlLattes() {
-        return urlLattes;
+    @Override
+    public void bonificacao(double valor) {
+        super.bonificacao(valor);
     }
-
-    public void setUrlLattes(String urlLattes) {
-        this.urlLattes = urlLattes;
-    }
-
-    public ArrayList<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-
     
     @Override
     public String toString() {
         return super.toString() +
-                "\nURL Lattes: " + urlLattes +
-                "\nDisciplinas: " + disciplinas;
+                "\nFunção: " + funcao +
+                "\nSetor: " + setor;
     }
     
     

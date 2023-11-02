@@ -33,8 +33,8 @@ public class Funcionario extends Pessoa {
         this.salario = salario;
     }
     
-    public void bonificacao () {
-        
+    public void bonificacao(double valor) {
+        salario += valor;
     }
     
     @Override

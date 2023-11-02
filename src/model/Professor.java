@@ -22,15 +22,20 @@ public class Professor extends Funcionario {
     public void setUrlLattes(String urlLattes) {
         this.urlLattes = urlLattes;
     }
-
-    public ArrayList<Disciplina> getDisciplinas() {
-        return disciplinas;
+    
+    public void addDisciplina(Disciplina disciplina) {
+        disciplinas.add(disciplina);
     }
 
-    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
+    // Método para remover uma disciplina do ArrayList de disciplinas
+    public void removeDisciplina(Disciplina disciplina) {
+        disciplinas.remove(disciplina);
     }
 
+    @Override
+    public void bonificacao(double valor){
+        super.bonificacao(valor);
+    }
     
     @Override
     public String toString() {

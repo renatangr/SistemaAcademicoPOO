@@ -2,15 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
-public class Professor extends Funcionario { 
+public class Atendente extends Funcionario { 
     private String urlLattes;
     private ArrayList<Disciplina> disciplinas;
     
-    public Professor(){
+    public Atendente(){
         
     }
     
-    public Professor(String nome, String cpf, int numeroCracha, double salario, String urlLattes) {
+    public Atendente(String nome, String cpf, int numeroCracha, double salario, String urlLattes) {
         super(nome, cpf, numeroCracha, salario);
         this.urlLattes = urlLattes;
     }

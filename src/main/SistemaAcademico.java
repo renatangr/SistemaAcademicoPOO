@@ -16,7 +16,10 @@ public class SistemaAcademico {
             System.out.println("3 - Inserir Atendente");
             System.out.println("4 - Inserir Aluno");
             System.out.println("5 - Adicionar Disciplina ao Professor");
-            System.out.println("6 - Sair");
+            System.out.println("6 - Mostrar Pessoas");
+            System.out.println("7 - Mostrar Disciplinas");
+            System.out.println("8 - Aplicar Bonificação");
+            System.out.println("9 - Sair");
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
@@ -140,10 +143,60 @@ public class SistemaAcademico {
                         System.out.println("Professor com número de crachá " + crachaProfessor + " não encontrado.");
                     }
                     break;
+                
                 case 6:
+                    System.out.println("Lista de Pessoas:");
+                    for (Pessoa pessoa : pessoas) {
+                        System.out.println(pessoa);
+                    }
+                    break;
+                    
+                case 7:
+                    System.out.println("Lista de Disciplinas:");
+                    for (Disciplina lstDisciplina : disciplinas) {
+                        System.out.println(disciplinas);
+                    }
+                    break;
+                    
+                case 8:
+                    System.out.print("Informe o número do crachá do Funcionário: ");
+                    int crachaFuncionario = scanner.nextInt();
+                    scanner.nextLine();
+
+                    Funcionario funcionarioParaBonificacao = null;
+                    for (Pessoa pessoa : pessoas) {
+                        if (pessoa instanceof Funcionario && ((Funcionario) pessoa).getNumeroCracha() == crachaFuncionario) {
+                            funcionarioParaBonificacao = (Funcionario) pessoa; // Realize o downcast para a classe Funcionario
+                            break;
+                        }
+                    }
+
+                    if (funcionarioParaBonificacao != null) {
+                        if (funcionarioParaBonificacao instanceof Professor) {
+                            // Aplicar bonificação de 100% (duplicar o salário)
+                            double novoSalario = funcionarioParaBonificacao.getSalario() * 2;
+                            funcionarioParaBonificacao.setSalario(novoSalario);
+                        } else if (funcionarioParaBonificacao instanceof Atendente) {
+                            // Aplicar bonificação de 15%
+                            double novoSalario = funcionarioParaBonificacao.getSalario() * 1.15;
+                            funcionarioParaBonificacao.setSalario(novoSalario);
+                        } else {
+                            // Funcionário normal: Aplicar bonificação de 10%
+                            double novoSalario = funcionarioParaBonificacao.getSalario() * 1.10;
+                            funcionarioParaBonificacao.setSalario(novoSalario);
+                        }
+                        System.out.println("Bonificação aplicada com sucesso!");
+                    } else {
+                        System.out.println("Funcionário com número de crachá " + crachaFuncionario + " não encontrado.");
+                    }
+                    break;
+
+                    
+                case 9:
                     System.out.println("Saindo do programa. Até logo!");
                     System.exit(0);
                     break;
+                    
                 default:
                     System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
             }

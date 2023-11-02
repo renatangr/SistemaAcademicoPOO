@@ -1,6 +1,6 @@
 package model;
 
-class Pessoa {
+public class Pessoa {
     protected String nome;
     private String cpf;
 
@@ -9,7 +9,7 @@ class Pessoa {
         
     }
     
-        public String getNome() {
+    public String getNome() {
         return nome;
     }
 

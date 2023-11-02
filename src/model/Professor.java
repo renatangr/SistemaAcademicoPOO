@@ -5,6 +5,14 @@ import java.util.ArrayList;
 public class Professor extends Funcionario { 
     private String urlLattes;
     private ArrayList<Disciplina> disciplinas;
+
+    public ArrayList<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(ArrayList<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
     
     public Professor(){
         
